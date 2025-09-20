@@ -10,9 +10,31 @@
  *
  * Learn more at https://developers.cloudflare.com/workers/
  */
+// export default {
+// 	async fetch(request, env, ctx): Promise<Response> {
+// 		return new Response('Hello World!');
+// 	},
+// } satisfies ExportedHandler<Env>;
 
-export default {
-	async fetch(request, env, ctx): Promise<Response> {
-		return new Response('Hello World!');
-	},
-} satisfies ExportedHandler<Env>;
+
+import { Hono } from "hono";
+import { getClient } from "./pg-folder/index";
+
+type Bindings = {
+  DATABASE_URL: string;
+};
+
+const app = new Hono<{ Bindings: Bindings }>();
+
+app.get("/", async (c) => {
+  const client = getClient(c.env.DATABASE_URL);
+  await client.connect();
+
+  const result = await client.query("SELECT NOW()");
+  await client.end();
+
+  return c.json({ time: result.rows[0] });
+});
+
+export default app;
+
