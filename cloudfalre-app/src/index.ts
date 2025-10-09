@@ -18,23 +18,24 @@
 
 
 import { Hono } from "hono";
-import { getClient } from "./pg-folder/index";
+
+
 
 type Bindings = {
-  DATABASE_URL: string;
+  
 };
 
 const app = new Hono<{ Bindings: Bindings }>();
 
 app.get("/", async (c) => {
-  const client = getClient(c.env.DATABASE_URL);
-  await client.connect();
 
-  const result = await client.query("SELECT NOW()");
-  await client.end();
-
-  return c.json({ time: result.rows[0] });
+  return c.json({msg :"hello"});
 });
 
 export default app;
 
+const hii: () => string = () => {
+	return "dfkdbfb";
+} 
+
+hii()
