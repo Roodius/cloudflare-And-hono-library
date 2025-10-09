@@ -107,20 +107,3 @@ app.get('/api/v1/blog/:id', async (c) => {
 })
 
 export default app
-
-
-
-
-
-
-
-
-
-
-/*
-  postgres://avnadmin:AVNS_38nTOouN6I4O-BgJ2v3@senior-check-barnesbucky933-ad17.e.aivencloud.com:18379/defaultdb?sslmode=require
-
-
-  prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfaWQiOjEsInNlY3VyZV9rZXkiOiJza19XUlIxX0Y2aHF6UWhfVzdFUkJtTUkiLCJhcGlfa2V5IjoiMDFLNllHS0FUVEQ0SEQ3ODc0QTg3R1pNS0siLCJ0ZW5hbnRfaWQiOiJhODVkOTEyOTYzMjE5NWNmZDY1MjI1NzVmNTAyYjNkZjJjODk5Y2QyYmE1NTAyMmE2YWFiMDc5ZTk2NTM2YTMyIiwiaW50ZXJuYWxfc2VjcmV0IjoiYWFkNmJiYWYtOGQ4YS00YWE4LWFmYjUtNGQzYTlmNDhmMjEwIn0.f3RHSg7h04_oL1S9DXPgHRm_ddOLbWZGil_NvZPfYFQ
-
-*/
